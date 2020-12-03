@@ -1,8 +1,6 @@
 βTorrent
 ========
-**[βTorrent]** is a fully-featured **[WebTorrent]** browser client written in [Jade], [CoffeeScript] and [Sass]
-
-[![Join the chat at https://gitter.im/DiegoRBaquero/BTorrent](https://badges.gitter.im/DiegoRBaquero/BTorrent.svg)](https://gitter.im/DiegoRBaquero/BTorrent?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+**[βTorrent]** is a fully-featured **[WebTorrent]** browser client written in HTML, JS and CSS
 
 ### Features
 - [x] Informative GUI with easy sharing options
@@ -31,20 +29,14 @@
 
 Website powered by [jsDelivr] and [CloudFlare]. I use [nginx] in my server.
 
-Don't like CloudFlare? No problem! Check [Direct-βTorrent].
+### HTML5 serving
+**You must serve index.html as the default**
 
-### Easily built, tested and served
-**I use [Harp] to rapidly test and compile the project**
-
-Build the project into HTML, JS and CSS easily. Just use:
-```bash
-harp compile
+For nginx, use this conf:
 ```
-This will create a www folder with the compiled files
-
-If you need to serve the files and view the compiled version instantly just use:
-```bash
-harp server
+    location / {
+        try_files $uri$args $uri$args/ /index.html;
+    }
 ```
 
 ### Enable Debugging
@@ -66,10 +58,9 @@ localStorage.removeItem('debug')
 - [whitef0x0](https://github.com/whitef0x0) For cleanup and ng-file-upload and other ideas
 
 ### License
-MIT. Copyright (c) [Diego Rodríguez Baquero](http://diegorbaquero.com)
+MIT. Copyright (c) [Diego Rodríguez Baquero](https://diegorbaquero.com)
 
 [βTorrent]: https://btorrent.xyz
-[Direct-βTorrent]: https://direct.btorrent.xyz
 [WebTorrent]: https://webtorrent.io
 [AngularJS]: https://angularjs.org/
 [Skeleton]: http://getskeleton.com/
